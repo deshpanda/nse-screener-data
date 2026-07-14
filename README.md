@@ -34,6 +34,9 @@ Daily closes for 12+ NSE sector indices (Bank, IT, Pharma…). Sector-level benc
 ### `index_members/` — index membership snapshots
 13 point-in-time Nifty constituent lists recovered from the Internet Archive. Partial by nature; documented honestly.
 
+### `constituents_synth.parquet` — synthetic index membership (2018→)
+Which stocks were (approximately) in which index, month by month — **reconstructed**, because NSE publishes no constituent history. Share counts are implied from quarterly filings (net profit ÷ earnings-per-share), multiplied by unadjusted prices for market cap, then ranked — both plain and free-float (promoter stake excluded, which is how Nifty actually ranks). Calibrated against the 13 real snapshots in `index_members/`: Nifty500 ~90% agreement, Nifty50 ~84%. Good for defining large-cap/mid-cap universes at any past date; treat the exact rank-50/rank-500 boundary as fuzzy.
+
 ### `pledge/` — monthly pledge snapshots (2026→)
 A dataset being *farmed*: full promoter-pledge state captured monthly, because the exchange only publishes "now."
 
